@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //404
+    <string name="apierror_notfound">服务器找不到请求的网页</string>
+    //408
+    <string name="apierror_timeout">服务器等候请求时超时</string>
+    //500 502
+    <string name="apierror_serviceerror">服务器错误</string>
+    //499
+    <string name="apierror_notnetwork">无网络或者网络信号差</string>
+    //700
+    <string name="unexpected_error">未知错误</string>
+</resources>
