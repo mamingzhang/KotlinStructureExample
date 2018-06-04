@@ -3,7 +3,7 @@ package com.horsege.kotlinstructure.ui.presenter
 import org.greenrobot.eventbus.EventBus
 
 interface Presenter<out T> {
-    val View: T
+    val view: T
     val eventBus: EventBus
 
     fun onResume() {
