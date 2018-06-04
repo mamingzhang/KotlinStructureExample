@@ -55,4 +55,6 @@ dependencies {
     //stetho
     implementation "com.facebook.stetho:stetho:$stetho_version"
     implementation "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+    //eventbus
+    implementation "org.greenrobot:eventbus:$eventbus_version"
 }
