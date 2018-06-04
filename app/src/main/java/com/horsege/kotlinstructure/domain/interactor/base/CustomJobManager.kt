@@ -1,4 +1,4 @@
-package com.horsege.kotlinstructure.data.base
+package com.horsege.kotlinstructure.domain.interactor.base
 
 import android.content.Context
 import com.birbit.android.jobqueue.JobManager

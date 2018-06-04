@@ -3,9 +3,9 @@ package com.horsege.kotlinstructure.dagger
 import android.content.Context
 import com.birbit.android.jobqueue.JobManager
 import com.horsege.kotlinstructure.dagger.qualifier.ApplicationQualifier
-import com.horsege.kotlinstructure.data.base.CustomEventBus
-import com.horsege.kotlinstructure.data.base.CustomJobManager
-import com.horsege.kotlinstructure.data.base.InteractorExecutorImpl
+import com.horsege.kotlinstructure.domain.interactor.base.CustomEventBus
+import com.horsege.kotlinstructure.domain.interactor.base.CustomJobManager
+import com.horsege.kotlinstructure.domain.interactor.base.InteractorExecutorImpl
 import com.horsege.kotlinstructure.data.http.HttpApiService
 import com.horsege.kotlinstructure.data.http.HttpOkHttpClient
 import com.horsege.kotlinstructure.data.http.HttpRetrofit

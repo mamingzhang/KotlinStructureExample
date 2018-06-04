@@ -1,4 +1,4 @@
-package com.horsege.kotlinstructure.data.base
+package com.horsege.kotlinstructure.domain.interactor.base
 
 import com.birbit.android.jobqueue.JobManager
 import org.greenrobot.eventbus.EventBus
