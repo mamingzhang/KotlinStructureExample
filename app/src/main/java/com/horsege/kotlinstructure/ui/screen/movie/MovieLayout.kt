@@ -4,14 +4,11 @@ import android.support.design.widget.AppBarLayout
 import android.support.v7.widget.RecyclerView
 import com.horsege.kotlinstructure.R
 import horsege.com.supportdesiginexample.ui.avtivity.ActivityAnkoComponent
-import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.themedToolbar
-import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.design.appBarLayout
 import org.jetbrains.anko.design.coordinatorLayout
-import org.jetbrains.anko.matchParent
 import org.jetbrains.anko.recyclerview.v7.recyclerView
-import org.jetbrains.anko.textView
 
 class MovieLayout : ActivityAnkoComponent<MainActivity> {
     lateinit var recyclerView: RecyclerView
@@ -32,6 +29,8 @@ class MovieLayout : ActivityAnkoComponent<MainActivity> {
 
             }.lparams(width = matchParent, height = matchParent) {
                 behavior = AppBarLayout.ScrollingViewBehavior()
+
+                topMargin = dip(10)
             }
         }
 

@@ -31,6 +31,7 @@ class MovieAdapter(listener: (MovieDomain) -> Unit) : AnkoBaseAdapter<MovieDomai
             constraintLayout {
                 imageView = imageView {
                     id = View.generateViewId()
+                    scaleType = ImageView.ScaleType.CENTER_CROP
                 }.lparams(width = dip(100), height = dip(100)) {
                     leftToLeft = PARENT_ID
                     leftMargin = dip(10)
@@ -38,28 +39,24 @@ class MovieAdapter(listener: (MovieDomain) -> Unit) : AnkoBaseAdapter<MovieDomai
 
                 titleTxt = textView {
                     textSize = sp(12).toFloat()
-                    gravity = Gravity.LEFT
                 }.lparams(width = wrapContent) {
                     leftToRight = imageView.id
                     topToTop = imageView.id
-                    rightToRight = PARENT_ID
 
                     leftMargin = dip(10)
                     rightMargin = dip(10)
-                    topMargin = dip(6)
+                    topMargin = dip(2)
                 }
 
                 yearTxt = textView {
                     textSize = sp(12).toFloat()
-                    gravity = Gravity.LEFT
                 }.lparams(width = wrapContent) {
                     leftToRight = imageView.id
                     bottomToBottom = imageView.id
-                    rightToRight = PARENT_ID
 
                     leftMargin = dip(10)
                     rightMargin = dip(10)
-                    bottomMargin = dip(6)
+                    bottomMargin = dip(2)
                 }
             }
         }
