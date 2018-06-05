@@ -29,8 +29,6 @@ class MovieLayout : ActivityAnkoComponent<MainActivity> {
 
             }.lparams(width = matchParent, height = matchParent) {
                 behavior = AppBarLayout.ScrollingViewBehavior()
-
-                topMargin = dip(10)
             }
         }
 

@@ -1,6 +1,7 @@
 package com.horsege.kotlinstructure.ui.screen.movie
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import com.horsege.kotlinstructure.R
 import com.horsege.kotlinstructure.dagger.AppComponent
@@ -27,6 +28,7 @@ class MainActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
 
         adapter = MovieAdapter { longToast(it.title) }
         ui.recyclerView.layoutManager = LinearLayoutManager(this)
+        ui.recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         ui.recyclerView.adapter = adapter
     }
 

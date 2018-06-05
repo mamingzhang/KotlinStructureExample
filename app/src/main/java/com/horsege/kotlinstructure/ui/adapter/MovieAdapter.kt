@@ -33,7 +33,11 @@ class MovieAdapter(listener: (MovieDomain) -> Unit) : AnkoBaseAdapter<MovieDomai
                     scaleType = ImageView.ScaleType.CENTER_CROP
                 }.lparams(width = dip(100), height = dip(100)) {
                     leftToLeft = PARENT_ID
+                    topToTop = PARENT_ID
+                    bottomToBottom = PARENT_ID
                     leftMargin = dip(10)
+                    topMargin = dip(2)
+                    bottomMargin = dip(2)
                 }
 
                 titleTxt = textView {
