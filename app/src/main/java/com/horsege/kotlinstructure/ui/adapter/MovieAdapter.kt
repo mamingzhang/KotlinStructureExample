@@ -2,7 +2,6 @@ package com.horsege.kotlinstructure.ui.adapter
 
 import android.support.constraint.ConstraintLayout.LayoutParams.PARENT_ID
 import android.support.v7.widget.RecyclerView
-import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
