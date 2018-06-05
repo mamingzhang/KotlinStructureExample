@@ -1,6 +1,6 @@
 package com.horsege.kotlinstructure.dagger.subcomponent.main
 
-import com.horsege.kotlinstructure.MainActivity
+import com.horsege.kotlinstructure.ui.screen.movie.MainActivity
 import com.horsege.kotlinstructure.dagger.ActivityModule
 import com.horsege.kotlinstructure.dagger.scope.ActivityScope
 import com.horsege.kotlinstructure.domain.interactor.GetMovieInteractor

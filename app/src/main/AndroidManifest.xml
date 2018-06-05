@@ -20,7 +20,7 @@
             android:name="com.horsege.kotlinstructure.glide.CustomGlideModule"
             android:value="GlideModule" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.screen.movie.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
