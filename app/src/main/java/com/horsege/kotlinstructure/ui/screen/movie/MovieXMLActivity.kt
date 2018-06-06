@@ -1,8 +1,10 @@
 package com.horsege.kotlinstructure.ui.screen.movie
 
 import android.os.Bundle
+import android.support.v4.view.ViewCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import com.horsege.kotlinstructure.R
 import com.horsege.kotlinstructure.dagger.AppComponent
 import com.horsege.kotlinstructure.dagger.subcomponent.main.MainActivityModule
@@ -20,16 +22,34 @@ class MovieXMLActivity : BaseActivity(), MovieView {
     @Inject
     lateinit var presenter: MoviePresenter
 
-    private lateinit var adapter : MovieAdapter
+    private lateinit var adapter: MovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_xml)
 
         adapter = MovieAdapter { longToast(it.title) }
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        recyclerView.adapter = adapter
+        swipe_target.layoutManager = LinearLayoutManager(this)
+        swipe_target.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        swipe_target.adapter = adapter
+
+        swipeToLoadLayout.setOnRefreshListener {
+
+        }
+
+        swipeToLoadLayout.setOnLoadMoreListener {
+
+        }
+
+        swipe_target.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    if (!swipe_target.canScrollVertically(1)) {
+                        swipeToLoadLayout.isLoadingMore = true
+                    }
+                }
+            }
+        })
     }
 
     override fun onResume() {
