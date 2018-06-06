@@ -34,11 +34,11 @@ class MovieXMLActivity : BaseActivity(), MovieView {
         swipe_target.adapter = adapter
 
         swipeToLoadLayout.setOnRefreshListener {
-
+            longToast("OnRefresh")
         }
 
         swipeToLoadLayout.setOnLoadMoreListener {
-
+            longToast("LoadMore")
         }
 
         swipe_target.addOnScrollListener(object : RecyclerView.OnScrollListener() {
