@@ -1,6 +1,5 @@
 package com.horsege.kotlinstructure.ui.presenter
 
-import android.support.annotation.MainThread
 import com.horsege.kotlinstructure.domain.interactor.GetMovieInteractor
 import com.horsege.kotlinstructure.domain.interactor.base.InteractorExecutor
 import com.horsege.kotlinstructure.domain.interactor.event.MovieEvent

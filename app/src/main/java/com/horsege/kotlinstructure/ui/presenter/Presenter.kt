@@ -13,4 +13,8 @@ interface Presenter<out T> {
     fun onPause() {
         eventBus.unregister(this)
     }
+
+    fun onDestory() {
+
+    }
 }

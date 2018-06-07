@@ -3,4 +3,4 @@ package com.horsege.kotlinstructure.domain.interactor.base
 /**
  * EventBus通知实体
  */
-interface Event
+abstract class Event(val code: Int = 0, val message: String = "")
