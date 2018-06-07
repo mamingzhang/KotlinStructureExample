@@ -19,14 +19,14 @@ import org.jetbrains.anko.design.appBarLayout
 import org.jetbrains.anko.design.coordinatorLayout
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 
-class MovieLayout : ActivityAnkoComponent<MainActivity> {
+class MovieLayout : ActivityAnkoComponent<MovieActivity> {
     lateinit var recyclerView: RecyclerView
     lateinit var swipeToLoadLayout: SwipeToLoadLayout
 
     lateinit var googleCircleHookRefreshHeaderView: GoogleCircleHookRefreshHeaderView
     lateinit var googleCircleHookLoadMoreFooterView: GoogleCircleHookLoadMoreFooterView
 
-    override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
+    override fun createView(ui: AnkoContext<MovieActivity>) = with(ui) {
         coordinatorLayout {
             appBarLayout {
                 themedToolbar(R.style.ThemeOverlay_AppCompat_Dark_ActionBar) {

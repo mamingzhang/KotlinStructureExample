@@ -1,13 +1,12 @@
 package com.horsege.kotlinstructure.ui.screen.movie
 
 import android.os.Bundle
-import android.support.v4.view.ViewCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.horsege.kotlinstructure.R
 import com.horsege.kotlinstructure.dagger.AppComponent
-import com.horsege.kotlinstructure.dagger.subcomponent.main.MainActivityModule
+import com.horsege.kotlinstructure.dagger.subcomponent.main.MovieActivityModule
 import com.horsege.kotlinstructure.domain.entity.MovieDomain
 import com.horsege.kotlinstructure.ui.activity.BaseActivity
 import com.horsege.kotlinstructure.ui.adapter.MovieAdapter
@@ -63,7 +62,7 @@ class MovieXMLActivity : BaseActivity(), MovieView {
     }
 
     override fun injectDependencies(appComponent: AppComponent) {
-        appComponent.plus(MainActivityModule(this)).injectTo(this)
+        appComponent.plus(MovieActivityModule(this)).injectTo(this)
     }
 
     override fun showMovie(movies: List<MovieDomain>) {

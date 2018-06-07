@@ -1,6 +1,5 @@
 package com.horsege.kotlinstructure.dagger.subcomponent.main
 
-import com.horsege.kotlinstructure.ui.screen.movie.MainActivity
 import com.horsege.kotlinstructure.dagger.ActivityModule
 import com.horsege.kotlinstructure.dagger.scope.ActivityScope
 import com.horsege.kotlinstructure.domain.interactor.GetMovieInteractor
@@ -13,7 +12,7 @@ import dagger.Provides
 import org.greenrobot.eventbus.EventBus
 
 @Module
-class MainActivityModule(activity: BaseActivity) : ActivityModule(activity) {
+class MovieActivityModule(activity: BaseActivity) : ActivityModule(activity) {
     @Provides
     @ActivityScope
     fun provideMovieView(): MovieView = activity as MovieView

@@ -5,7 +5,7 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.horsege.kotlinstructure.dagger.AppComponent
-import com.horsege.kotlinstructure.dagger.subcomponent.main.MainActivityModule
+import com.horsege.kotlinstructure.dagger.subcomponent.main.MovieActivityModule
 import com.horsege.kotlinstructure.domain.entity.MovieDomain
 import com.horsege.kotlinstructure.ui.adapter.MovieAdapter
 import com.horsege.kotlinstructure.ui.presenter.MoviePresenter
@@ -14,7 +14,7 @@ import horsege.com.supportdesiginexample.ui.avtivity.AnkoBaseActivity
 import org.jetbrains.anko.longToast
 import javax.inject.Inject
 
-class MainActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
+class MovieActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
     override val ui = MovieLayout()
 
     @Inject
@@ -69,7 +69,7 @@ class MainActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
     }
 
     override fun injectDependencies(appComponent: AppComponent) {
-        appComponent.plus(MainActivityModule(this)).injectTo(this)
+        appComponent.plus(MovieActivityModule(this)).injectTo(this)
     }
 
     override fun showMovie(movies: List<MovieDomain>) {
