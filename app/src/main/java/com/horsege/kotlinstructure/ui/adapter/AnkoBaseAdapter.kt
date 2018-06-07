@@ -8,7 +8,7 @@ import kotlin.properties.Delegates
 
 abstract class AnkoBaseAdapter<Item, Component : ViewAnkoComponent<RecyclerView>>(private val listener: (Item) -> Unit) : RecyclerView.Adapter<AnkoBaseAdapter.AnkoBaseViewHolder<Component >>() {
 
-    val items: List<Item> by Delegates.observable(emptyList()) { _, _, _ ->
+    var items: List<Item> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
 

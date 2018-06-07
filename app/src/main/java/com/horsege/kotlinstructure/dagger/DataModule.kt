@@ -9,6 +9,7 @@ import com.horsege.kotlinstructure.domain.interactor.base.InteractorExecutorImpl
 import com.horsege.kotlinstructure.data.http.HttpApiService
 import com.horsege.kotlinstructure.data.http.HttpOkHttpClient
 import com.horsege.kotlinstructure.data.http.HttpRetrofit
+import com.horsege.kotlinstructure.domain.interactor.base.InteractorExecutor
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -42,5 +43,5 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideInteractorExecutor(jobManager: JobManager, eventBus: EventBus) = InteractorExecutorImpl(jobManager, eventBus)
+    fun provideInteractorExecutor(jobManager: JobManager, eventBus: EventBus) : InteractorExecutor = InteractorExecutorImpl(jobManager, eventBus)
 }
