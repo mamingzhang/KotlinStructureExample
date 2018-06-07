@@ -30,6 +30,7 @@ class MoviePresenter(override val view: MovieView,
     fun requestRefresh() {
         movies.clear()
 
+        getMovieInteractor.start = 0
         getMovieInteractor.count = 20
         interactorExecutor.execute(getMovieInteractor)
     }
