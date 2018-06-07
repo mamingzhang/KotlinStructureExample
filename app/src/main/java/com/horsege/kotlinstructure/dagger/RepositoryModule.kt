@@ -1,5 +1,7 @@
 package com.horsege.kotlinstructure.dagger
 
+import android.content.Context
+import com.horsege.kotlinstructure.dagger.qualifier.ApplicationQualifier
 import com.horsege.kotlinstructure.data.http.HttpApiService
 import com.horsege.kotlinstructure.data.http.movie.ServerMovieDataSet
 import com.horsege.kotlinstructure.domain.repository.MovieRepository
@@ -12,6 +14,6 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Provides
     @Singleton
-    fun provideMovieRepository(httpApiService: HttpApiService): MovieRepository
-            = MovieRepositoryImpl(listOf(ServerMovieDataSet(httpApiService)))
+    fun provideMovieRepository(@ApplicationQualifier context: Context, httpApiService: HttpApiService): MovieRepository
+            = MovieRepositoryImpl(listOf(ServerMovieDataSet(context, httpApiService)))
 }

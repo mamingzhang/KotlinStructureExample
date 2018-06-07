@@ -1,7 +1,7 @@
 package com.horsege.kotlinstructure.repository.dataset
 
-import com.horsege.kotlinstructure.domain.entity.MovieDomain
+import com.horsege.kotlinstructure.domain.interactor.event.MovieEvent
 
 interface MovieDataSet {
-    fun requestTopMovie(start: Int, count: Int) : List<MovieDomain>
+    fun requestTopMovie(start: Int, count: Int) : MovieEvent
 }

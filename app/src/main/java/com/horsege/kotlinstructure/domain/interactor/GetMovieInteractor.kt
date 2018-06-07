@@ -11,7 +11,6 @@ class GetMovieInteractor(val movieRepository: MovieRepository): Interactor {
 
     override fun invoke(): Event {
         if (count == 0) throw IllegalArgumentException("count must not be zero")
-        var movies = movieRepository.getTopMovie(start, count)
-        return MovieEvent(movies)
+        return movieRepository.getTopMovie(start, count)
     }
 }
