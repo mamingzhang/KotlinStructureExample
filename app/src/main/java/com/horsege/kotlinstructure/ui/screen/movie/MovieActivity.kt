@@ -15,6 +15,7 @@ import org.jetbrains.anko.longToast
 import javax.inject.Inject
 
 class MovieActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
+
     override val ui = MovieLayout()
 
     @Inject
@@ -40,11 +41,11 @@ class MovieActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
         ui.googleCircleHookRefreshHeaderView.requestLayout()
 
         ui.swipeToLoadLayout.setOnRefreshListener {
-            longToast("OnRefresh")
+            presenter.requestRefresh()
         }
 
         ui.swipeToLoadLayout.setOnLoadMoreListener {
-            longToast("LoadMore")
+            presenter.requestLoadMore()
         }
 
         ui.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -56,6 +57,8 @@ class MovieActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
                 }
             }
         })
+
+        ui.swipeToLoadLayout.isRefreshing = true
     }
 
     override fun onResume() {
@@ -72,7 +75,13 @@ class MovieActivity : AnkoBaseActivity<MovieLayout>(), MovieView {
         appComponent.plus(MovieActivityModule(this)).injectTo(this)
     }
 
-    override fun showMovie(movies: List<MovieDomain>) {
+    override fun onRefreshFinished(movies: List<MovieDomain>) {
         adapter.items = movies
+        ui.swipeToLoadLayout.isRefreshing = false
+    }
+
+    override fun onLoadMoreFinished(movies: List<MovieDomain>, bNoMore: Boolean) {
+        adapter.items = movies
+        ui.swipeToLoadLayout.isLoadingMore = false
     }
 }

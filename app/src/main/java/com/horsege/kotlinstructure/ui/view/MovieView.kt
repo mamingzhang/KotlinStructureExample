@@ -3,5 +3,7 @@ package com.horsege.kotlinstructure.ui.view
 import com.horsege.kotlinstructure.domain.entity.MovieDomain
 
 interface MovieView {
-    fun showMovie(movies: List<MovieDomain>)
+    fun onRefreshFinished(movies: List<MovieDomain>)
+
+    fun onLoadMoreFinished(movies: List<MovieDomain>, bNoMore: Boolean)
 }

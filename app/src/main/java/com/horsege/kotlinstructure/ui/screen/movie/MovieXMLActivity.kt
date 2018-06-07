@@ -33,11 +33,11 @@ class MovieXMLActivity : BaseActivity(), MovieView {
         swipe_target.adapter = adapter
 
         swipeToLoadLayout.setOnRefreshListener {
-            longToast("OnRefresh")
+            presenter.requestRefresh()
         }
 
         swipeToLoadLayout.setOnLoadMoreListener {
-            longToast("LoadMore")
+            presenter.requestLoadMore()
         }
 
         swipe_target.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -49,6 +49,8 @@ class MovieXMLActivity : BaseActivity(), MovieView {
                 }
             }
         })
+
+        swipeToLoadLayout.isRefreshing = true
     }
 
     override fun onResume() {
@@ -65,7 +67,13 @@ class MovieXMLActivity : BaseActivity(), MovieView {
         appComponent.plus(MovieActivityModule(this)).injectTo(this)
     }
 
-    override fun showMovie(movies: List<MovieDomain>) {
+    override fun onRefreshFinished(movies: List<MovieDomain>) {
         adapter.items = movies
+        swipeToLoadLayout.isRefreshing = false
+    }
+
+    override fun onLoadMoreFinished(movies: List<MovieDomain>, bNoMore: Boolean) {
+        adapter.items = movies
+        swipeToLoadLayout.isLoadingMore = false
     }
 }
