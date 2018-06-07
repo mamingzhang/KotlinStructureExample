@@ -350,6 +350,33 @@ public class SwipeToLoadLayout extends ViewGroup {
         }
     }
 
+    /**
+     * TODO: anko layout not called onFinishInflate
+     */
+    public void inflate() {
+        final int childNum = getChildCount();
+        if (childNum == 0) {
+            // no child return
+            return;
+        } else if (0 < childNum && childNum < 4) {
+            mHeaderView = findViewById(R.id.swipe_refresh_header);
+            mTargetView = findViewById(R.id.swipe_target);
+            mFooterView = findViewById(R.id.swipe_load_more_footer);
+        } else {
+            // more than three children: unsupported!
+            throw new IllegalStateException("Children num must equal or less than 3");
+        }
+        if (mTargetView == null) {
+            return;
+        }
+        if (mHeaderView != null && mHeaderView instanceof SwipeTrigger) {
+            mHeaderView.setVisibility(GONE);
+        }
+        if (mFooterView != null && mFooterView instanceof SwipeTrigger) {
+            mFooterView.setVisibility(GONE);
+        }
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);

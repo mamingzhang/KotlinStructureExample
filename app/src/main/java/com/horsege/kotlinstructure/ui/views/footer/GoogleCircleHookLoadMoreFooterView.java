@@ -48,6 +48,19 @@ public class GoogleCircleHookLoadMoreFooterView extends FrameLayout implements S
         progressView.setStartEndTrim(0, (float) 0.75);
     }
 
+    /**
+     * TODO: anko layout not called onFinishInflate
+     */
+    public void inflate() {
+        progressView = (GoogleCircleProgressView) findViewById(R.id.googleProgress);
+        progressView.setColorSchemeResources(
+                R.color.google_blue,
+                R.color.google_red,
+                R.color.google_yellow,
+                R.color.google_green);
+        progressView.setStartEndTrim(0, (float) 0.75);
+    }
+
     @Override
     public void onLoadMore() {
         progressView.start();

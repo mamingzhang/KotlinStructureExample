@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GoogleCircleProgressViewStyle">
+        <item name="gcp_show_arrow">true</item>
+        <item name="gcp_progress_stoke_width">2dp</item>
+        <item name="gcp_arrow_height">6dp</item>
+        <item name="gcp_arrow_width">8dp</item>
+    </style>
+</resources>
