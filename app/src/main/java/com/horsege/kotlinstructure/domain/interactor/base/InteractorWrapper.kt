@@ -6,7 +6,7 @@ import com.birbit.android.jobqueue.RetryConstraint
 import org.greenrobot.eventbus.EventBus
 
 class InteractorWrapper(val interactor: Interactor, priority: InteractorPriority, val eventBus: EventBus) :
-        Job(Params(priority.value)) {
+        Job(Params(priority.value).requireNetwork()) {
     override fun onRun() {
         val event = interactor.invoke()
         eventBus.post(event)
