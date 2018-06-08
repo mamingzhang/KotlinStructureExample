@@ -11,7 +11,7 @@ import com.horsege.kotlinstructure.repository.dataset.MovieDataSet
 
 class ServerMovieDataSet(private val context: Context, private val httpApiService: HttpApiService) : MovieDataSet{
     override fun requestTopMovie(start: Int, count: Int): MovieEvent {
-        val movieEvent: MovieEvent = MovieEvent(emptyList())
+        val movieEvent = MovieEvent(emptyList())
 
         httpApiService.getTopMovie(start, count).compose(NetworkScheduler.composeCurrent())
                 .subscribe(object : OrdinarySubscriber<MovieResult>(context) {
