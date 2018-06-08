@@ -103,4 +103,8 @@ dependencies {
     //
     implementation 'com.lsjwzh:materialloadingprogressbar:0.5.8-RELEASE'
     implementation project(':swipetoloadlayoutlibrary')
+
+    //RxLifecycle see:
+    //1. https://github.com/trello/RxLifecycle
+    //2. https://www.jianshu.com/p/c66d50cd14ee
 }
