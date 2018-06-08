@@ -1,5 +1,6 @@
 package com.horsege.kotlinstructure.ui.presenter
 
+import com.horsege.kotlinstructure.domain.entity.MovieDomain
 import com.horsege.kotlinstructure.domain.interactor.GetMovieInteractor
 import com.horsege.kotlinstructure.domain.interactor.base.InteractorExecutor
 import com.horsege.kotlinstructure.domain.interactor.event.MovieEvent
@@ -13,14 +14,34 @@ class MoviePresenter(override val view: MovieView,
                      private val getMovieInteractor: GetMovieInteractor,
                      private val interactorExecutor: InteractorExecutor) : Presenter<MovieView> {
 
-    override fun onResume() {
-        super.onResume()
+    private var movies: MutableList<MovieDomain> = mutableListOf()
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(movieEvent: MovieEvent) {
+        if (movies.size == 0) {
+            movies.addAll(movieEvent.movies)
+            view.onRefreshFinished(movieEvent.movies)
+        } else {
+            movies.addAll(movieEvent.movies)
+            view.onLoadMoreFinished(movies, movieEvent.movies.size == 0)
+        }
+    }
+
+    fun requestRefresh() {
+        movies.clear()
+
+        getMovieInteractor.start = 0
         getMovieInteractor.count = 20
         interactorExecutor.execute(getMovieInteractor)
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(movieEvent: MovieEvent) {
-        view.showMovie(movieEvent.movies)
+    fun requestLoadMore() {
+        if (movies.size == 0) {
+            return
+        }
+
+        getMovieInteractor.start = movies.size
+        getMovieInteractor.count = 20
+        interactorExecutor.execute(getMovieInteractor)
     }
 }
